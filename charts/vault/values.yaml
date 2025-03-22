@@ -1,0 +1,19 @@
+# charts/vault/values.yaml - Configuración para instalar Vault con Helm
+
+# Configuración del modo de Vault
+server:
+  dev:
+    enabled: true  # Usar modo Dev para simplicidad
+  ha:
+    enabled: false
+
+# Habilitar el Vault Agent Injector
+injector:
+  enabled: true
+
+# Configuración de la autenticación Kubernetes
+authMethods:
+  kubernetes:
+    enabled: true
+    path: kubernetes
+    kubernetesHost: "http://kubernetes.default.svc"

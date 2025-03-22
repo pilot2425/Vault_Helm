@@ -1,0 +1,5 @@
+# policies.yaml - Definición de la política para acceder a los secretos de S3
+
+path "secret/data/s3-credentials" {
+  capabilities = ["read"]
+}

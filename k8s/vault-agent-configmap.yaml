@@ -1,0 +1,18 @@
+# vault-agent-configmap.yaml - Configuración del Vault Agent Injector
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vault-agent-config
+data:
+  config.hcl: |
+    pid_file = "/tmp/vault.pid"
+    vault {
+      address = "http://vault:8200"
+      token = "root"
+    }
+
+    template {
+      source = "/vault/secrets/s3-credentials"
+      destination = "/etc/secrets/s3-credentials"
+    }

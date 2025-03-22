@@ -1,0 +1,11 @@
+# bootstrap.yml - Configuración para conectar con Vault
+
+spring:
+  cloud:
+    vault:
+      uri: http://vault:8200
+      authentication: KUBERNETES
+      kubernetes:
+        role: springboot-vault-s3
+        service-account-token-file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        ca-cert-file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt

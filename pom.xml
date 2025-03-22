@@ -1,0 +1,12 @@
+<dependencies>
+    <!-- Dependencia para acceder a Vault -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-vault-config</artifactId>
+    </dependency>
+    <!-- Dependencia de AWS SDK para S3 -->
+    <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+    </dependency>
+</dependencies>

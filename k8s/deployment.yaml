@@ -1,0 +1,31 @@
+# deployment.yaml - Despliegue de la aplicación Spring Boot
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-vault-s3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-vault-s3
+  template:
+    metadata:
+      labels:
+        app: springboot-vault-s3
+    spec:
+      serviceAccountName: vault-auth  # Usar el ServiceAccount
+      containers:
+        - name: springboot-vault-s3
+          image: your_springboot_image  # Imagen de la aplicación Spring Boot
+          env:
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: access_key
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: secret_key
